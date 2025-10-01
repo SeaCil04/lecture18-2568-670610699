@@ -159,17 +159,17 @@ router.post(
           message: "StudentId does not exists",
         });
       }
+      enrollments.push(body);
       const newcourse = enrollments
         .filter((enroll) => enroll.studentId === studentId)
         .map((enroll) => enroll.courseId);
-
+        
       if (students[studentIndex]?.courses !== undefined) {
         students[studentIndex].courses = {
           ...students[studentIndex].courses,
           ...{ courses: newcourse },
         };
       }
-      enrollments.push(body);
 
       return res.status(200).json({
         success: true,

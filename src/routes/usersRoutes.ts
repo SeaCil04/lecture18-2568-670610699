@@ -40,7 +40,7 @@ router.post("/login", (req: Request, res: Response) => {
           if(!user){
             return res.status(401).json({
                 success: false,
-                message: "KUY"
+                message: "Invalid username or password"
             })
           }
     const jwtSecret = process.env.JWT_SECRET || "HELPPPP!!!!";
@@ -58,13 +58,13 @@ router.post("/login", (req: Request, res: Response) => {
   // 4. send HTTP response with JWT token
   res.status(200).json({
     success : true,
-    message : "Logic is Keyes",
+    message : "Login is successfuly",
     token
   })
     }catch(err){
         return res.status(500).json({
             success: false,
-            message: "KUY",
+            message: "Something is wrong, please try again",
             error: err
         })
     }
