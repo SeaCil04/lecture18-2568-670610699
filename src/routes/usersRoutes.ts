@@ -43,7 +43,7 @@ router.post("/login", (req: Request, res: Response) => {
                 message: "Invalid username or password"
             })
           }
-    const jwtSecret = process.env.JWT_SECRET || "HELPPPP!!!!";
+    const jwtSecret = process.env.JWT_SECRET || "this_is_my_secret";
     const token = jwt.sign({
         // add payload
         username : user.username,
